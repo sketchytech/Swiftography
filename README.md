@@ -1,7 +1,7 @@
 # Swiftography
 Standard cryptographic algorithms in a Swift Playground
 # CryptoJS
-Cryptonite leverages the [CryptoJS](https://code.google.com/p/crypto-js/) repository via JavaScriptCore framework. It is featured in a playground here but can transfered to a regular app as well.
+Swiftorgraphy leverages the [CryptoJS](https://code.google.com/p/crypto-js/) repository via JavaScriptCore framework. It is featured in a playground here but can transfered to a regular app as well.
 # Example
 As you'll see in the playground all is self-explanatory and easy to use, simply write:
 ```
