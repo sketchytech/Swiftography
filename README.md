@@ -1,8 +1,8 @@
 # Swiftography
 Standard cryptographic algorithms in a Swift Playground
-# CryptoJS
+## CryptoJS
 Swiftorgraphy leverages the [CryptoJS](https://code.google.com/p/crypto-js/) repository via JavaScriptCore framework. It is featured in a playground here but can transfered to a regular app as well.
-# Example
+## Example
 As you'll see in the playground all is self-explanatory and easy to use, simply write:
 ```
 let str = "Hello Swift!"
