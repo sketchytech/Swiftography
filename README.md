@@ -5,6 +5,8 @@ Swiftorgraphy leverages the [CryptoJS](https://code.google.com/p/crypto-js/) rep
 # Example
 As you'll see in the playground all is self-explanatory and easy to use, simply write:
 ```
+let str = "Hello Swift!"
+
 Crypto.sha1(str) // "9c602d242f2ecedff6dd3703576e1fa39aa25706"
 Crypto.sha224(str) // "807db20e8e9f401114c7d542609bda14b8ebcb723f662cc14602ee96"
 Crypto.sha256(str) // "bf452d84b203dfe67b45f1d73be4866f2552f8414eff79452375a467f02e30d7"
