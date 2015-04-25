@@ -12,7 +12,7 @@ Crypto.sha3(str)
 Crypto.md5(str)
 Crypto.ripemd160(str)
 
-
+// IDPF font obfuscation
 if let url = NSBundle.mainBundle().URLForResource("Lobster-Regular", withExtension: "ttf"),
     source = NSData(contentsOfURL: url) {
         // obfuscate font using IDPF approach
