@@ -2,6 +2,8 @@
 Standard cryptographic algorithms in a Swift Playground
 ## CryptoJS
 Swiftorgraphy leverages the [CryptoJS](https://code.google.com/p/crypto-js/) repository via JavaScriptCore framework. It is featured in a playground here but can transfered to a regular app as well.
+## IDPF font obfuscation added
+Font obfuscation in line with [IDPF EPUB standard](http://www.idpf.org/epub/30/spec/epub30-ocf.html#font-obfuscation) works to obfuscate and de-obfuscate fonts.
 ## Example
 As you'll see in the playground all is self-explanatory and easy to use, simply write:
 ```
@@ -15,4 +17,13 @@ Crypto.sha512(str) // "636130e3878c8c47ee266849d8c8754481dae9018a32f74ac13a77733
 Crypto.sha3(str) // "f23a824632ba5a27fc2d7bf3683032acb27862eb49d7bce825c75f86a52a2b123aab3c76035fab5a5aad01b0cc0c495b2140198260a0e7441ba9235f26795338"
 Crypto.md5(str) // "ba135edf6168271dfe4ed79e719e8188"
 Crypto.ripemd160(str) // "1c87b79ebcb075d87242486fe0e8e43b9ccdd311"
+
+// IDPF font obfuscation
+if let url = NSBundle.mainBundle().URLForResource("Lobster-Regular", withExtension: "ttf"),
+    source = NSData(contentsOfURL: url) {
+        // obfuscate font using IDPF approach
+        let obFont = obfuscateFontIDPF(source,"urn:uuid:9A6376C9-9E0A-4BA4-87CE-667AA91A70DE")
+        obFont == source // false, font has been obfuscated
+        obfuscateFontIDPF(obFont,"urn:uuid:9A6376C9-9E0A-4BA4-87CE-667AA91A70DE") == source // true, font has been obfuscated back to original state
+}
 ```
