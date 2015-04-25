@@ -13,4 +13,10 @@ Crypto.md5(str)
 Crypto.ripemd160(str)
 
 
-
+if let url = NSBundle.mainBundle().URLForResource("Lobster-Regular", withExtension: "ttf"),
+    source = NSData(contentsOfURL: url) {
+        // obfuscate font using IDPF approach
+        let obFont = obfuscateFontIDPF(source,"urn:uuid:9A6376C9-9E0A-4BA4-87CE-667AA91A70DE")
+        obFont == source // false, font has been obfuscated
+        obfuscateFontIDPF(obFont,"urn:uuid:9A6376C9-9E0A-4BA4-87CE-667AA91A70DE") == source // true, font has been obfuscated back to original state
+}
