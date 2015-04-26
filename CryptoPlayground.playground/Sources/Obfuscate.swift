@@ -44,7 +44,6 @@ func sha1data(key:String) -> [UInt8]? {
     if let source = Crypto.sha1(key) {
         var start = source.startIndex
         var end = advance(start,2)
-        var dataArray = [NSData]()
         var data = NSMutableData()
         while end < source.endIndex {
             end = advance(start,2)
