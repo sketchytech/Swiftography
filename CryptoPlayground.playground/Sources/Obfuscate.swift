@@ -1,6 +1,7 @@
 import Foundation
 
 
+
 // thanks to this SO response for strtod http://stackoverflow.com/questions/24031621/swift-how-to-convert-string-to-double/27144221?stw=2#27144221
 func sha1data(str:String) -> [UInt8] {
     var keydata = ""
