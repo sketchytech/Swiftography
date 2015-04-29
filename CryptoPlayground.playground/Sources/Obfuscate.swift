@@ -1,8 +1,6 @@
 import Foundation
 
 
-
-
 public func obfuscateFontIDPF(data:NSData, key:String) -> NSData {
     // convert string to data
     // now do obfuscation
