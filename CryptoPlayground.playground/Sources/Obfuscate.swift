@@ -2,23 +2,6 @@ import Foundation
 
 
 
-// thanks to this SO response for strtod http://stackoverflow.com/questions/24031621/swift-how-to-convert-string-to-double/27144221?stw=2#27144221
-func sha1data(str:String) -> [UInt8] {
-    var keydata = ""
-    var dataArray = [UInt8]()
-    if let crypto = Crypto.sha1(str) {
-        keydata = crypto
-        for i in stride(from: 0, to: count(keydata), by: 2) {
-            var str = "0x\(first(keydata)!)"
-            keydata.removeAtIndex(keydata.startIndex)
-            str.append(first(keydata)!)
-            keydata.removeAtIndex(keydata.startIndex)
-            dataArray.append(UInt8(strtod(str,nil)))
-        }
-    }
-    return dataArray
-}
-
 
 public func obfuscateFontIDPF(data:NSData, key:String) -> NSData {
     // convert string to data
@@ -51,3 +34,19 @@ public func obfuscateFontIDPF(data:NSData, key:String) -> NSData {
     return newData
 }
 
+// thanks to this SO response for strtod http://stackoverflow.com/questions/24031621/swift-how-to-convert-string-to-double/27144221?stw=2#27144221
+func sha1data(str:String) -> [UInt8] {
+    var keydata = ""
+    var dataArray = [UInt8]()
+    if let crypto = Crypto.sha1(str) {
+        keydata = crypto
+        for i in stride(from: 0, to: count(keydata), by: 2) {
+            var str = "0x\(first(keydata)!)"
+            keydata.removeAtIndex(keydata.startIndex)
+            str.append(first(keydata)!)
+            keydata.removeAtIndex(keydata.startIndex)
+            dataArray.append(UInt8(strtod(str,nil)))
+        }
+    }
+    return dataArray
+}
