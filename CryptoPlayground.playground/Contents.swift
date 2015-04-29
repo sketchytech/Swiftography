@@ -20,3 +20,4 @@ if let url = NSBundle.mainBundle().URLForResource("Lobster-Regular", withExtensi
         obFont == source // false, font has been obfuscated
         obfuscateFontIDPF(obFont,"urn:uuid:9A6376C9-9E0A-4BA4-87CE-667AA91A70DE") == source // true, font has been obfuscated back to original state
 }
+
