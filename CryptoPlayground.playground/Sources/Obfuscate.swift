@@ -27,7 +27,7 @@ public func obfuscateFontIDPF(data:NSData, key:String) -> NSData {
     }
     
     destination.extend(arr)
-    let newData = NSData(bytes: &destination, length: count(destination)*sizeof(UInt8))
+    let newData = NSData(bytes: &destination, length: destination.count*sizeof(UInt8))
     arr.removeAll(keepCapacity: false)
     return newData
 }
@@ -38,10 +38,10 @@ func sha1data(str:String) -> [UInt8] {
     var dataArray = [UInt8]()
     if let crypto = Crypto.sha1(str) {
         keydata = crypto
-        for i in stride(from: 0, to: count(keydata), by: 2) {
-            var str = "0x\(first(keydata)!)"
+        for _ in stride(from: 0, to: keydata.characters.count, by: 2) {
+            var str = "0x\(keydata.characters.first)"
             keydata.removeAtIndex(keydata.startIndex)
-            str.append(first(keydata)!)
+            str.append(keydata.characters.first!)
             keydata.removeAtIndex(keydata.startIndex)
             dataArray.append(UInt8(strtod(str,nil)))
         }
