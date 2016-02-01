@@ -2,6 +2,34 @@ import Foundation
 import JavaScriptCore
 
 public struct Crypto {
+    public static func aes(data:String, password:String, iv:String) -> String? {
+        
+        if let url = NSBundle.mainBundle().URLForResource("aes", withExtension: "js") {
+            var a:JSValue?
+            do {
+                let js = try String(contentsOfURL: url, encoding: NSUTF8StringEncoding)
+                // First a context and JS virtual machine is created
+                let context = JSContext(virtualMachine: JSVirtualMachine())
+                
+                // Next we send the context the script
+                context.evaluateScript(js)
+                
+                // generate JSValue
+                a = context.evaluateScript("CryptoJS.AES.encrypt('\(data)','\(password)')")
+                
+            }
+            catch {
+                
+            }
+            return a!.toString()
+            
+            
+        }
+        else {
+            return nil
+        }
+    }
+
     public static func sha1(str:String) -> String? {
 
         if let url = NSBundle.mainBundle().URLForResource("sha1", withExtension: "js") {
